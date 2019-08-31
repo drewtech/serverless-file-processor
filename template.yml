@@ -10,4 +10,4 @@ Resources:
       Description: 'Simple test lambda.'
       MemorySize: 1024
       Timeout: 15
-      Role: '[role in your AWS account]'
+      Role: 'LambdaServerlessRole'
