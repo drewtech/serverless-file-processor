@@ -1,13 +1,14 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
-Description: 'Simple template containign'
+Description: 'A lambda function that splits files'
 Resources:
-  mehfBuildkiteCDTestLambda:
+  drewtechBuildkiteCDTestLambda:
     Type: 'AWS::Serverless::Function'
     Properties:
-      Handler: 'index.handler'
-      Runtime: 'nodejs10.x'
-      Description: 'Simple test lambda.'
-      MemorySize: 1024
+      CodeUri: ./file_splitter/handler
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.6
+      Description: 'A lambda that splits files.'
+      MemorySize: 128
       Timeout: 15
       Role: 'arn:aws:iam::452268117598:role/LambdaServerlessRole'
