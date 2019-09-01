@@ -1,8 +1,12 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
 Description: 'A lambda function that splits files'
+Parameters:
+  BucketNamePrefix:
+    Type: String
+    Default: drewtechau
 Resources:
-  drewtechBuildkiteCDTestLambda:
+  s3GetUploadedFileMetaData:
     Type: 'AWS::Serverless::Function'
     Properties:
       CodeUri: ./file_splitter/handler/
@@ -12,3 +16,15 @@ Resources:
       MemorySize: 128
       Timeout: 15
       Role: 'arn:aws:iam::452268117598:role/LambdaServerlessRole'
+      Events:
+        BucketEvent1:
+          Type: S3
+          Properties:
+            Bucket:
+              Ref: Bucket1
+            Events:
+              - 's3:ObjectCreated:*' 
+  Bucket1:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: !Sub "${BucketNamePrefix}-uploaded-files"
