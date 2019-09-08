@@ -8,6 +8,6 @@ FROM hashicorp/terraform:light
 #     # pip install awscli && \
 #     # pip install aws-sam-cli && \
 #     # apk del build-deps
-#     apk add zip
+#     apk add zip 1
 RUN mkdir /app
 WORKDIR /app
