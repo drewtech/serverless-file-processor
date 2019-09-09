@@ -11,4 +11,4 @@ FROM hashicorp/terraform:light
 #     apk add zip 1
 RUN mkdir /app
 WORKDIR /app
-ENTRYPOINT ["/bin/bash"]
+#ENTRYPOINT ["/bin/sh"]
