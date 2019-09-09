@@ -1,5 +1,5 @@
 steps:
-  - label: SAM deploy
+  - label: Terraform deply
     command: ".buildkite/deploy.sh"
     plugins:
       - docker-compose#v3.0.3:
